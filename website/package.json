@@ -9,7 +9,7 @@
     "history": "^5.2.0",
     "isomorphic-fetch": "^3.0.0",
     "react": "^17.0.2",
-    "react-ace": "^9.5.0",
+    "react-ace": "^10.1.0",
     "react-dom": "^17.0.2",
     "react-final-form": "^6.5.7",
     "react-icons": "^4.3.1",

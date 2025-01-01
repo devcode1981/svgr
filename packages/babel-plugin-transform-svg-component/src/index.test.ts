@@ -338,6 +338,17 @@ describe('plugin', () => {
         expect(code).toMatchSnapshot()
       })
 
+      it('allows to specify a custom "classic" jsxRuntime using "defaultSpecifier"', () => {
+        const { code } = testPlugin(language)('<svg><g /></svg>', {
+          jsxRuntime: 'classic',
+          jsxRuntimeImport: {
+            defaultSpecifier: 'h',
+            source: 'hyperapp-jsx-pragma',
+          },
+        })
+        expect(code).toMatchSnapshot()
+      })
+
       it('throws with invalid configuration', () => {
         expect(() => {
           testPlugin(language)('<svg><g /></svg>', {
@@ -345,7 +356,7 @@ describe('plugin', () => {
             jsxRuntimeImport: { source: 'preact' },
           })
         }).toThrow(
-          'Specify either "namespace" or "specifiers" in "jsxRuntimeImport" option',
+          'Specify "namespace", "defaultSpecifier", or "specifiers" in "jsxRuntimeImport" option',
         )
       })
     })

@@ -109,6 +109,13 @@ describe('cli', () => {
     expect(result).toMatchSnapshot()
   })
 
+  it('should support --svgo-config as file with .cjs extension', async () => {
+    const result = await cli(
+      `--svgo-config __fixtures__/withSvgoConfig/svgo.config.cjs __fixtures__/simple/file.svg`,
+    )
+    expect(result).toMatchSnapshot()
+  })
+
   it.each([
     ['--no-dimensions'],
     ['--jsx-runtime classic-preact'],
@@ -147,6 +154,7 @@ describe('cli', () => {
     [1, '--filename-case=camel'],
     [2, '--filename-case=pascal'],
     [3, '--filename-case=kebab'],
+    [4, '--filename-case=snake'],
   ])(
     'should support different filename cases with directory output',
     async (index, args) => {

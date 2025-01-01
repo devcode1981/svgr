@@ -7,16 +7,9 @@ export { default as File } from './File'
 `;
 
 exports[`cli should not override config with cli defaults 1`] = `
-"import * as React from 'react'
-
-const SvgFile = () => (
-  <svg width={48} height={1} xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"img\\">
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
-  </svg>
-)
-
-export default SvgFile
-
+"import * as React from "react";
+const SvgFile = () => <svg viewBox="0 0 48 1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"><title>{"Rectangle 5"}</title><desc>{"Created with Sketch."}</desc><defs /><g id="Page-1" stroke="none" strokeWidth={1} fill="none" fillRule="evenodd"><g id="19-Separator" transform="translate(-129.000000, -156.000000)" fill="#063855"><g id="Controls/Settings" transform="translate(80.000000, 0.000000)"><g id="Content" transform="translate(0.000000, 64.000000)"><g id="Group" transform="translate(24.000000, 56.000000)"><g id="Group-2"><rect id="Rectangle-5" x={25} y={36} width={48} height={1} /></g></g></g></g></g></g></svg>;
+export default SvgFile;
 "
 `;
 
@@ -26,26 +19,18 @@ exports[`cli should support --index-template in cli 1`] = `
 `;
 
 exports[`cli should support --no-index 1`] = `
-Array [
+[
   "File.js",
 ]
 `;
 
 exports[`cli should support --prettier-config as file 1`] = `
 "import * as React from 'react'
-
 const SvgFile = (props) => (
-     <svg
-          width={48}
-          height={1}
-          xmlns=\\"http://www.w3.org/2000/svg\\"
-          role=\\"img\\"
-          {...props}
-     >
-          <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+     <svg xmlns="http://www.w3.org/2000/svg" width={48} height={1} {...props}>
+          <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
      </svg>
 )
-
 export default SvgFile
 
 "
@@ -53,19 +38,11 @@ export default SvgFile
 
 exports[`cli should support --prettier-config as json 1`] = `
 "import * as React from 'react'
-
 const SvgFile = (props) => (
-     <svg
-          width={48}
-          height={1}
-          xmlns=\\"http://www.w3.org/2000/svg\\"
-          role=\\"img\\"
-          {...props}
-     >
-          <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+     <svg xmlns="http://www.w3.org/2000/svg" width={48} height={1} {...props}>
+          <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
      </svg>
 )
-
 export default SvgFile
 
 "
@@ -73,20 +50,25 @@ export default SvgFile
 
 exports[`cli should support --svgo-config as file 1`] = `
 "import * as React from 'react'
-
 const SvgFile = (props) => (
-  <svg
-    width={48}
-    height={1}
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
-    {...props}
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" width={48} height={1} {...props}>
     <title>{'Rectangle 5'}</title>
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
+export default SvgFile
 
+"
+`;
+
+exports[`cli should support --svgo-config as file with .cjs extension 1`] = `
+"import * as React from 'react'
+const SvgFile = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={48} height={1} {...props}>
+    <title>{'Rectangle 5'}</title>
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
+  </svg>
+)
 export default SvgFile
 
 "
@@ -94,27 +76,19 @@ export default SvgFile
 
 exports[`cli should support --svgo-config as json 1`] = `
 "import * as React from 'react'
-
 const SvgFile = (props) => (
-  <svg
-    width={48}
-    height={1}
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
-    {...props}
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" width={48} height={1} {...props}>
     <title>{'Rectangle 5'}</title>
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 export default SvgFile
 
 "
 `;
 
 exports[`cli should support custom file extension 1`] = `
-Array [
+[
   "File.ts",
   "index.ts",
 ]
@@ -126,7 +100,7 @@ exports[`cli should support custom index.js with directory output 1`] = `
 `;
 
 exports[`cli should support different filename cases with directory output 1`] = `
-Array [
+[
   "CamelCase.js",
   "KebabCase.js",
   "MultipleDashes.js",
@@ -136,7 +110,7 @@ Array [
 `;
 
 exports[`cli should support different filename cases with directory output: --filename-case=camel 1`] = `
-Array [
+[
   "camelCase.js",
   "index.js",
   "kebabCase.js",
@@ -146,7 +120,7 @@ Array [
 `;
 
 exports[`cli should support different filename cases with directory output: --filename-case=kebab 1`] = `
-Array [
+[
   "camel-case.js",
   "index.js",
   "kebab-case.js",
@@ -156,7 +130,7 @@ Array [
 `;
 
 exports[`cli should support different filename cases with directory output: --filename-case=pascal 1`] = `
-Array [
+[
   "CamelCase.js",
   "KebabCase.js",
   "MultipleDashes.js",
@@ -165,21 +139,23 @@ Array [
 ]
 `;
 
+exports[`cli should support different filename cases with directory output: --filename-case=snake 1`] = `
+[
+  "camel_case.js",
+  "index.js",
+  "kebab_case.js",
+  "multiple_dashes.js",
+  "pascal_case.js",
+]
+`;
+
 exports[`cli should support stdin filepath 1`] = `
 "import * as React from 'react'
-
 const SvgFile = (props) => (
-  <svg
-    width={48}
-    height={1}
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
-    {...props}
-  >
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  <svg xmlns="http://www.w3.org/2000/svg" width={48} height={1} {...props}>
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 export default SvgFile
 
 "
@@ -187,21 +163,18 @@ export default SvgFile
 
 exports[`cli should support various args: --desc-prop 1`] = `
 "import * as React from 'react'
-
 const SvgFile = ({ desc, descId, ...props }) => (
   <svg
+    xmlns="http://www.w3.org/2000/svg"
     width={48}
     height={1}
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
     aria-describedby={descId}
     {...props}
   >
     {desc ? <desc id={descId}>{desc}</desc> : null}
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 export default SvgFile
 
 "
@@ -209,13 +182,11 @@ export default SvgFile
 
 exports[`cli should support various args: --expand-props none 1`] = `
 "import * as React from 'react'
-
 const SvgFile = () => (
-  <svg width={48} height={1} xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"img\\">
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  <svg xmlns="http://www.w3.org/2000/svg" width={48} height={1}>
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 export default SvgFile
 
 "
@@ -223,19 +194,11 @@ export default SvgFile
 
 exports[`cli should support various args: --expand-props start 1`] = `
 "import * as React from 'react'
-
 const SvgFile = (props) => (
-  <svg
-    {...props}
-    width={48}
-    height={1}
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
-  >
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  <svg {...props} xmlns="http://www.w3.org/2000/svg" width={48} height={1}>
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 export default SvgFile
 
 "
@@ -243,20 +206,17 @@ export default SvgFile
 
 exports[`cli should support various args: --icon 1`] = `
 "import * as React from 'react'
-
 const SvgFile = (props) => (
   <svg
-    width=\\"1em\\"
-    height=\\"1em\\"
-    viewBox=\\"0 0 48 1\\"
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    viewBox="0 0 48 1"
     {...props}
   >
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 export default SvgFile
 
 "
@@ -264,20 +224,17 @@ export default SvgFile
 
 exports[`cli should support various args: --icon 2em 1`] = `
 "import * as React from 'react'
-
 const SvgFile = (props) => (
   <svg
-    width=\\"2em\\"
-    height=\\"2em\\"
-    viewBox=\\"0 0 48 1\\"
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
+    xmlns="http://www.w3.org/2000/svg"
+    width="2em"
+    height="2em"
+    viewBox="0 0 48 1"
     {...props}
   >
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 export default SvgFile
 
 "
@@ -285,20 +242,17 @@ export default SvgFile
 
 exports[`cli should support various args: --icon 24 1`] = `
 "import * as React from 'react'
-
 const SvgFile = (props) => (
   <svg
+    xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    viewBox=\\"0 0 48 1\\"
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
+    viewBox="0 0 48 1"
     {...props}
   >
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 export default SvgFile
 
 "
@@ -306,17 +260,10 @@ export default SvgFile
 
 exports[`cli should support various args: --jsx-runtime automatic 1`] = `
 "const SvgFile = (props) => (
-  <svg
-    width={48}
-    height={1}
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
-    {...props}
-  >
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  <svg xmlns="http://www.w3.org/2000/svg" width={48} height={1} {...props}>
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 export default SvgFile
 
 "
@@ -324,19 +271,11 @@ export default SvgFile
 
 exports[`cli should support various args: --jsx-runtime classic-preact 1`] = `
 "import { h } from 'preact'
-
 const SvgFile = (props) => (
-  <svg
-    width={48}
-    height={1}
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
-    {...props}
-  >
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  <svg xmlns="http://www.w3.org/2000/svg" width={48} height={1} {...props}>
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 export default SvgFile
 
 "
@@ -345,13 +284,11 @@ export default SvgFile
 exports[`cli should support various args: --native --expand-props none 1`] = `
 "import * as React from 'react'
 import Svg, { Path } from 'react-native-svg'
-
 const SvgFile = () => (
-  <Svg width={48} height={1} xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"img\\">
-    <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  <Svg xmlns="http://www.w3.org/2000/svg" width={48} height={1}>
+    <Path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </Svg>
 )
-
 export default SvgFile
 
 "
@@ -360,20 +297,17 @@ export default SvgFile
 exports[`cli should support various args: --native --icon 1`] = `
 "import * as React from 'react'
 import Svg, { Path } from 'react-native-svg'
-
 const SvgFile = (props) => (
   <Svg
+    xmlns="http://www.w3.org/2000/svg"
     width={24}
     height={24}
-    viewBox=\\"0 0 48 1\\"
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
+    viewBox="0 0 48 1"
     {...props}
   >
-    <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    <Path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </Svg>
 )
-
 export default SvgFile
 
 "
@@ -383,20 +317,17 @@ exports[`cli should support various args: --native --ref 1`] = `
 "import * as React from 'react'
 import Svg, { Path } from 'react-native-svg'
 import { forwardRef } from 'react'
-
 const SvgFile = (props, ref) => (
   <Svg
+    xmlns="http://www.w3.org/2000/svg"
     width={48}
     height={1}
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
     ref={ref}
     {...props}
   >
-    <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    <Path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </Svg>
 )
-
 const ForwardRef = forwardRef(SvgFile)
 export default ForwardRef
 
@@ -406,19 +337,11 @@ export default ForwardRef
 exports[`cli should support various args: --native 1`] = `
 "import * as React from 'react'
 import Svg, { Path } from 'react-native-svg'
-
 const SvgFile = (props) => (
-  <Svg
-    width={48}
-    height={1}
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
-    {...props}
-  >
-    <Path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  <Svg xmlns="http://www.w3.org/2000/svg" width={48} height={1} {...props}>
+    <Path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </Svg>
 )
-
 export default SvgFile
 
 "
@@ -426,59 +349,48 @@ export default SvgFile
 
 exports[`cli should support various args: --no-dimensions 1`] = `
 "import * as React from 'react'
-
 const SvgFile = (props) => (
-  <svg
-    viewBox=\\"0 0 48 1\\"
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
-    {...props}
-  >
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 1" {...props}>
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 export default SvgFile
 
 "
 `;
 
 exports[`cli should support various args: --no-prettier 1`] = `
-"import * as React from \\"react\\";
-
-const SvgFile = props => <svg width={48} height={1} xmlns=\\"http://www.w3.org/2000/svg\\" role=\\"img\\" {...props}><path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" /></svg>;
-
+"import * as React from "react";
+const SvgFile = props => <svg xmlns="http://www.w3.org/2000/svg" width={48} height={1} {...props}><path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" /></svg>;
 export default SvgFile;
 "
 `;
 
 exports[`cli should support various args: --no-svgo 1`] = `
 "import * as React from 'react'
-
 const SvgFile = (props) => (
   <svg
-    width=\\"48px\\"
-    height=\\"1px\\"
-    viewBox=\\"0 0 48 1\\"
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    xmlnsXlink=\\"http://www.w3.org/1999/xlink\\"
-    role=\\"img\\"
+    width="48px"
+    height="1px"
+    viewBox="0 0 48 1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
     {...props}
   >
     <title>{'Rectangle 5'}</title>
     <desc>{'Created with Sketch.'}</desc>
     <defs />
-    <g id=\\"Page-1\\" stroke=\\"none\\" strokeWidth={1} fill=\\"none\\" fillRule=\\"evenodd\\">
+    <g id="Page-1" stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
       <g
-        id=\\"19-Separator\\"
-        transform=\\"translate(-129.000000, -156.000000)\\"
-        fill=\\"#063855\\"
+        id="19-Separator"
+        transform="translate(-129.000000, -156.000000)"
+        fill="#063855"
       >
-        <g id=\\"Controls/Settings\\" transform=\\"translate(80.000000, 0.000000)\\">
-          <g id=\\"Content\\" transform=\\"translate(0.000000, 64.000000)\\">
-            <g id=\\"Group\\" transform=\\"translate(24.000000, 56.000000)\\">
-              <g id=\\"Group-2\\">
-                <rect id=\\"Rectangle-5\\" x={25} y={36} width={48} height={1} />
+        <g id="Controls/Settings" transform="translate(80.000000, 0.000000)">
+          <g id="Content" transform="translate(0.000000, 64.000000)">
+            <g id="Group" transform="translate(24.000000, 56.000000)">
+              <g id="Group-2">
+                <rect id="Rectangle-5" x={25} y={36} width={48} height={1} />
               </g>
             </g>
           </g>
@@ -487,7 +399,6 @@ const SvgFile = (props) => (
     </g>
   </svg>
 )
-
 export default SvgFile
 
 "
@@ -496,20 +407,17 @@ export default SvgFile
 exports[`cli should support various args: --ref 1`] = `
 "import * as React from 'react'
 import { forwardRef } from 'react'
-
 const SvgFile = (props, ref) => (
   <svg
+    xmlns="http://www.w3.org/2000/svg"
     width={48}
     height={1}
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
     ref={ref}
     {...props}
   >
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 const ForwardRef = forwardRef(SvgFile)
 export default ForwardRef
 
@@ -518,19 +426,11 @@ export default ForwardRef
 
 exports[`cli should support various args: --replace-attr-values "#063855=currentColor" 1`] = `
 "import * as React from 'react'
-
 const SvgFile = (props) => (
-  <svg
-    width={48}
-    height={1}
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
-    {...props}
-  >
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"currentColor\\" fillRule=\\"evenodd\\" />
+  <svg xmlns="http://www.w3.org/2000/svg" width={48} height={1} {...props}>
+    <path fill="currentColor" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 export default SvgFile
 
 "
@@ -538,21 +438,18 @@ export default SvgFile
 
 exports[`cli should support various args: --svg-props "hidden={true},id=hello" 1`] = `
 "import * as React from 'react'
-
 const SvgFile = (props) => (
   <svg
+    xmlns="http://www.w3.org/2000/svg"
     width={48}
     height={1}
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
     hidden={true}
-    id=\\"hello\\"
+    id="hello"
     {...props}
   >
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 export default SvgFile
 
 "
@@ -560,21 +457,18 @@ export default SvgFile
 
 exports[`cli should support various args: --title-prop 1`] = `
 "import * as React from 'react'
-
 const SvgFile = ({ title, titleId, ...props }) => (
   <svg
+    xmlns="http://www.w3.org/2000/svg"
     width={48}
     height={1}
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
     aria-labelledby={titleId}
     {...props}
   >
     {title ? <title id={titleId}>{title}</title> : null}
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 export default SvgFile
 
 "
@@ -582,30 +476,28 @@ export default SvgFile
 
 exports[`cli should support various args: --typescript --ref --desc-prop 1`] = `
 "import * as React from 'react'
-import { SVGProps, Ref, forwardRef } from 'react'
+import type { SVGProps } from 'react'
+import { Ref, forwardRef } from 'react'
 interface SVGRProps {
   desc?: string;
   descId?: string;
 }
-
 const SvgFile = (
   { desc, descId, ...props }: SVGProps<SVGSVGElement> & SVGRProps,
   ref: Ref<SVGSVGElement>,
 ) => (
   <svg
+    xmlns="http://www.w3.org/2000/svg"
     width={48}
     height={1}
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
     ref={ref}
     aria-describedby={descId}
     {...props}
   >
     {desc ? <desc id={descId}>{desc}</desc> : null}
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 const ForwardRef = forwardRef(SvgFile)
 export default ForwardRef
 
@@ -614,30 +506,28 @@ export default ForwardRef
 
 exports[`cli should support various args: --typescript --ref --title-prop 1`] = `
 "import * as React from 'react'
-import { SVGProps, Ref, forwardRef } from 'react'
+import type { SVGProps } from 'react'
+import { Ref, forwardRef } from 'react'
 interface SVGRProps {
   title?: string;
   titleId?: string;
 }
-
 const SvgFile = (
   { title, titleId, ...props }: SVGProps<SVGSVGElement> & SVGRProps,
   ref: Ref<SVGSVGElement>,
 ) => (
   <svg
+    xmlns="http://www.w3.org/2000/svg"
     width={48}
     height={1}
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
     ref={ref}
     aria-labelledby={titleId}
     {...props}
   >
     {title ? <title id={titleId}>{title}</title> : null}
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 const ForwardRef = forwardRef(SvgFile)
 export default ForwardRef
 
@@ -646,21 +536,19 @@ export default ForwardRef
 
 exports[`cli should support various args: --typescript --ref 1`] = `
 "import * as React from 'react'
-import { SVGProps, Ref, forwardRef } from 'react'
-
+import type { SVGProps } from 'react'
+import { Ref, forwardRef } from 'react'
 const SvgFile = (props: SVGProps<SVGSVGElement>, ref: Ref<SVGSVGElement>) => (
   <svg
+    xmlns="http://www.w3.org/2000/svg"
     width={48}
     height={1}
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
     ref={ref}
     {...props}
   >
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 const ForwardRef = forwardRef(SvgFile)
 export default ForwardRef
 
@@ -669,20 +557,12 @@ export default ForwardRef
 
 exports[`cli should support various args: --typescript 1`] = `
 "import * as React from 'react'
-import { SVGProps } from 'react'
-
+import type { SVGProps } from 'react'
 const SvgFile = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    width={48}
-    height={1}
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
-    {...props}
-  >
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  <svg xmlns="http://www.w3.org/2000/svg" width={48} height={1} {...props}>
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 export default SvgFile
 
 "
@@ -730,19 +610,11 @@ __fixtures__/withsvgrrc/file.svg -> __fixtures_build__/whole/withsvgrrc/file.tsx
 
 exports[`cli should work with a simple file 1`] = `
 "import * as React from 'react'
-
 const SvgFile = (props) => (
-  <svg
-    width={48}
-    height={1}
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
-    {...props}
-  >
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  <svg xmlns="http://www.w3.org/2000/svg" width={48} height={1} {...props}>
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 export default SvgFile
 
 "
@@ -750,19 +622,11 @@ export default SvgFile
 
 exports[`cli should work with stdin 1`] = `
 "import * as React from 'react'
-
 const SvgComponent = (props) => (
-  <svg
-    width={48}
-    height={1}
-    xmlns=\\"http://www.w3.org/2000/svg\\"
-    role=\\"img\\"
-    {...props}
-  >
-    <path d=\\"M0 0h48v1H0z\\" fill=\\"#063855\\" fillRule=\\"evenodd\\" />
+  <svg xmlns="http://www.w3.org/2000/svg" width={48} height={1} {...props}>
+    <path fill="#063855" fillRule="evenodd" d="M0 0h48v1H0z" />
   </svg>
 )
-
 export default SvgComponent
 
 "

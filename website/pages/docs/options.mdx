@@ -1,6 +1,7 @@
 ---
 section: Configuring SVGR
 title: Options
+slug: /docs/options/
 order: 10
 ---
 
@@ -35,9 +36,9 @@ Specify a JSX runtime to use.
 - "automatic": do not add anything
 - "classic-preact": adds `import { h } from 'preact'` on the top of file
 
-| Default   | CLI Override    | API Override           |
-| --------- | --------------- | ---------------------- | ----------- | ----------------- |
-| `classic` | `--jsx-runtime` | `jsxRuntime: 'classic' | 'automatic' | 'classic-preact'` |
+| Default   | CLI Override    | API Override                                               |
+| --------- | --------------- | ---------------------------------------------------------- |
+| `classic` | `--jsx-runtime` | `jsxRuntime: 'classic' \| 'automatic' \| 'classic-preact'` |
 
 ## JSX runtime import source
 
@@ -45,17 +46,19 @@ Specify a custom JSX runtime source to use. Allows to customize the import added
 
 Example: `jsxRuntimeImport: { source: 'preact', specifiers: ['h'] }` for "classic-preact" equivalent.
 
-| Default | CLI Override | API Override                                                 |
-| ------- | ------------ | ------------------------------------------------------------ |
-| `null`  | -            | `jsxRuntimeImport: { source: string, specifiers: string[] }` |
+To use the default import instead of a list of names, you can use `defaultSpecifier`, for example to use svgr with `hyperapp-jsx-pragma`, you can specify `jsxRuntimeImport: { source: 'hyperapp-jsx-pragma', defaultSpecifier: 'h' }` to get an end result of `import h from "hyperapp-jsx-pragma";`
+
+| Default | CLI Override | API Override                                                                           |
+| ------- | ------------ | -------------------------------------------------------------------------------------- |
+| `null`  | -            | `jsxRuntimeImport: { source: string, specifiers: string[], defaultSpecifier: string }` |
 
 ## Icon
 
 Replace SVG `width` and `height` by a custom value. If value is omitted, it uses `1em` in order to make SVG size inherits from text size.
 
-| Default | CLI Override     | API Override   |
-| ------- | ---------------- | -------------- | ------ | ------- |
-| `false` | `--icon [value]` | `icon: boolean | string | number` |
+| Default | CLI Override     | API Override                        |
+| ------- | ---------------- | ----------------------------------- |
+| `false` | `--icon [value]` | `icon: boolean \| string \| number` |
 
 > If you use `--icon` without any argument, be careful of separating files from arguments using `--`, ex: `svgr --icon -- assets/svg`
 
@@ -144,7 +147,7 @@ Setting this to `true` will forward ref to the root SVG tag.
 
 ## Memo
 
-Setting this to `true` will wrap the exported component in [`React.memo`](https://reactjs.org/docs/react-api.html#reactmemo).
+Setting this to `true` will wrap the exported component in [`React.memo`](https://react.dev/reference/react/memo).
 
 | Default | CLI Override | API Override    |
 | ------- | ------------ | --------------- |
@@ -169,6 +172,28 @@ Add props to the root SVG tag.
 | `[]`    | `--svg-props <name=value>` | `svgProps: { [key: string]: string }` |
 
 > You can specify dynamic property using curly braces: `{ focusable: "{true}" }` or `--svg-props focusable={true}`. It is particularly useful with a custom template.
+
+### Accessibility
+
+SVGs by default have an implicit `role="graphics-document"`. To make SVG content accessible you may want to override the default behavior which can be done via the `svgProps` override.
+
+#### For web:
+
+| Default | CLI Override           | API Override                |
+| ------- | ---------------------- | --------------------------- |
+| `[]`    | `--svg-props role=img` | `svgProps: { role: 'img' }` |
+
+#### For native:
+
+| Default | CLI Override                          | API Override                               |
+| ------- | ------------------------------------- | ------------------------------------------ |
+| `[]`    | `--svg-props accessibilityRole=image` | `svgProps: { accessibilityRole: 'image' }` |
+
+Typically for role=img you will want to add either `alt` text or `aria` label/description properties to describe the image when rendering the SVG in your application.
+
+> **NOTE**: On the web once you add `role: 'img'` some screen-readers will automatically announce any `title`/`text`/`desc` nodes within your SVG.
+>
+> SVGO can be configured to remove those nodes via the built-in `removeDesc` and `removeTitle` plugins if you only want to use `aria` properties during consumption of the SVGs.
 
 ## Title
 
@@ -206,9 +231,9 @@ Output files into a directory.
 
 Specify a template function (API) to change default index.js output (when --out-dir is used).
 
-| Default                                                                                        | CLI Override       | API Override               |
-| ---------------------------------------------------------------------------------------------- | ------------------ | -------------------------- |
-| [`basic template`](https://github.com/gregberge/svgr/blob/main/packages/cli/src/dirCommand.ts) | `--index-template` | indexTemplate: files => '' |
+| Default                                                                                        | CLI Override       | API Override  |
+| ---------------------------------------------------------------------------------------------- | ------------------ | ------------- |
+| [`basic template`](https://github.com/gregberge/svgr/blob/main/packages/cli/src/dirCommand.ts) | `--index-template` | not available |
 
 ## index.js file
 
@@ -222,13 +247,13 @@ Disable index.js file generation
 
 When used with `--out-dir`, it ignores already existing files.
 
-| Default | CLI Override        | API Override              |
-| ------- | ------------------- | ------------------------- |
-| `false` | `--ignore-existing` | `ignoreExisting: boolean` |
+| Default | CLI Override        | API Override  |
+| ------- | ------------------- | ------------- |
+| `false` | `--ignore-existing` | not available |
 
 ## Filename case
 
-Specify a custom filename case. Possible values: `pascal` for PascalCase, `kebab` for kebab-case or `camel` for camelCase.
+Specify a custom filename case. Possible values: `pascal` for PascalCase, `kebab` for kebab-case, `camel` for camelCase, or `snake` for snake_case.
 
 | Default  | CLI Override      | API Override           |
 | -------- | ----------------- | ---------------------- |

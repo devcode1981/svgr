@@ -1,8 +1,8 @@
 {
   "name": "@svgr/cli",
   "description": "SVGR command line.",
-  "version": "6.3.1",
-  "repository": "https://github.com/gregberge/svgr/tree/master/packages/cli",
+  "version": "8.1.0",
+  "repository": "https://github.com/gregberge/svgr/tree/main/packages/cli",
   "author": "Greg Bergé <berge.greg@gmail.com>",
   "publishConfig": {
     "access": "public"
@@ -14,7 +14,7 @@
     "cli"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "homepage": "https://react-svgr.com",
   "funding": {
@@ -27,22 +27,23 @@
   },
   "scripts": {
     "reset": "rm -rf dist",
-    "build": "rollup -c ../../build/rollup.config.js",
-    "prepublishOnly": "npm run reset && npm run build"
+    "build": "rollup -c ../../build/rollup.config.mjs",
+    "prepublishOnly": "pnpm run reset && pnpm run build"
   },
   "dependencies": {
-    "@svgr/core": "^6.3.1",
-    "@svgr/plugin-jsx": "^6.3.1",
-    "@svgr/plugin-prettier": "^6.3.1",
-    "@svgr/plugin-svgo": "^6.3.1",
+    "@svgr/core": "workspace:*",
+    "@svgr/plugin-jsx": "workspace:*",
+    "@svgr/plugin-prettier": "workspace:*",
+    "@svgr/plugin-svgo": "workspace:*",
     "camelcase": "^6.2.0",
     "chalk": "^4.1.2",
-    "commander": "^9.3.0",
+    "commander": "^9.4.1",
     "dashify": "^2.0.0",
-    "glob": "^8.0.3"
+    "glob": "^8.0.3",
+    "snake-case": "^3.0.4"
   },
   "devDependencies": {
-    "@types/glob": "^7.2.0",
+    "@types/glob": "^8.1.0",
     "del": "^6.1.1"
   }
 }

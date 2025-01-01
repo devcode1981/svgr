@@ -8,7 +8,6 @@ import {
   DialogBackdrop as ReakitDialogBackdrop,
 } from 'reakit/Dialog'
 import { CarbonAd } from 'smooth-doc/src/components/CarbonAd'
-import { lighten } from 'polished'
 import { Settings } from './Settings'
 import { svgr } from './modules/svgr'
 import defaultSvg from './defaultSVG'
@@ -223,7 +222,7 @@ function CopyFeedback(props) {
           <x.div my={24}>
             <SponsorLink
               onClick={trackLink}
-              href="https://twitter.com/neoziro"
+              href="https://twitter.com/gregberge_"
               target="_blank"
               rel="noopener noreferrer"
               bg="#1DA1F3"

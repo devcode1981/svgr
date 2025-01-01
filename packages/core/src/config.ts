@@ -1,6 +1,6 @@
 import { cosmiconfig, cosmiconfigSync } from 'cosmiconfig'
 import type { Options as PrettierOptions } from 'prettier'
-import type { OptimizeOptions as SvgoOptions } from 'svgo'
+import type { Config as SvgoConfig } from 'svgo'
 import type { Options as TransformOptions } from '@svgr/babel-preset'
 import type { TransformOptions as BabelTransformOptions } from '@babel/core'
 import type { ConfigPlugin } from './plugins'
@@ -25,13 +25,19 @@ export interface Config {
   prettier?: boolean
   prettierConfig?: PrettierOptions
   svgo?: boolean
-  svgoConfig?: SvgoOptions
+  svgoConfig?: SvgoConfig
   configFile?: string
   template?: TransformOptions['template']
   memo?: boolean
   exportType?: 'named' | 'default'
   namedExport?: string
   jsxRuntime?: 'classic' | 'classic-preact' | 'automatic'
+  jsxRuntimeImport?: {
+    source: string
+    namespace?: string
+    specifiers?: string[]
+    defaultSpecifier?: string
+  }
 
   // CLI only
   index?: boolean
@@ -113,7 +119,7 @@ export const loadConfig = async (
     state.filePath && baseConfig.runtimeConfig !== false
       ? await resolveConfig(state.filePath, configFile)
       : {}
-  return { ...DEFAULT_CONFIG, ...rcConfig, ...baseConfig }
+  return { ...DEFAULT_CONFIG, ...baseConfig, ...rcConfig }
 }
 
 loadConfig.sync = (
@@ -124,5 +130,5 @@ loadConfig.sync = (
     state.filePath && baseConfig.runtimeConfig !== false
       ? resolveConfig.sync(state.filePath, configFile)
       : {}
-  return { ...DEFAULT_CONFIG, ...rcConfig, ...baseConfig }
+  return { ...DEFAULT_CONFIG, ...baseConfig, ...rcConfig }
 }

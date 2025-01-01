@@ -38,7 +38,7 @@ const parseConfig = (name: string) => (arg: string) => {
     }
 
     const ext = path.extname(arg)
-    if (ext === '.js' || ext === '.json') {
+    if (ext === '.js' || ext === '.json' || ext === '.cjs') {
       return require(path.join(process.cwd(), arg))
     }
 
@@ -103,7 +103,7 @@ program
   .option('--ext <ext>', 'specify a custom file extension (default: "js")')
   .option(
     '--filename-case <case>',
-    'specify filename case ("pascal", "kebab", "camel") (default: "pascal")',
+    'specify filename case ("pascal", "kebab", "camel", "snake") (default: "pascal")',
   )
   .option(
     '--icon [size]',
@@ -199,6 +199,9 @@ async function run() {
   }
 
   const programOpts = noUndefinedKeys(program.opts<Options>())
+  if (programOpts.dimensions) delete programOpts.dimensions
+  if (programOpts.svgo) delete programOpts.svgo
+  if (programOpts.prettier) delete programOpts.prettier
   const opts = (await loadConfig(programOpts, {
     filePath: process.cwd(),
   })) as Options
